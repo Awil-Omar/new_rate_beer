@@ -75,3 +75,4 @@ group :test do
   gem "webdrivers"
   gem 'pry-byebug'
 end
+gem "devise"

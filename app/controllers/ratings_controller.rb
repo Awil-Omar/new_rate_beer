@@ -13,6 +13,8 @@ class RatingsController < ApplicationController
   # GET /ratings/new
   def new
     @rating = Rating.new
+    @beers = Beer.all
+    @styles = ["Weizen", "Lager", "Pale ale", "IPA", "Porter", "Lowalcohol"]
   end
 
   # GET /ratings/1/edit
