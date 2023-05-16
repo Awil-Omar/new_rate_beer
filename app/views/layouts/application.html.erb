@@ -13,9 +13,13 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+
   </head>
 
   <body>
+    <%link_to "breweries", breweries_path %>
+    <%link_to "beers", beers_path %>
     <%= yield %>
   </body>
 </html>
