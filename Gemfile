@@ -59,7 +59,7 @@ group :development do
   gem 'rspec-rails', '~> 6.0.0'
   gem "better_errors"
   gem "binding_of_caller"
-  gem 'pry-byebug'
+
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
@@ -73,4 +73,5 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem 'pry-byebug'
 end
