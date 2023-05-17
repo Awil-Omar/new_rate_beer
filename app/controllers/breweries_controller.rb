@@ -13,6 +13,7 @@ class BreweriesController < ApplicationController
   # GET /breweries/new
   def new
     @brewery = Brewery.new
+
   end
 
   # GET /breweries/1/edit

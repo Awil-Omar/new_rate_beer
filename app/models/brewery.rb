@@ -1,6 +1,6 @@
 class Brewery < ApplicationRecord
-  has_many :beers
-  has_many :ratings, through: :beers
+  has_many :beers, dependent: :delete_all
+  has_many :ratings, through: :beers, dependent: :delete_all
   validates :name, presence: true
   validates :year, presence: true,  numericality: {
     only_integer: true,
