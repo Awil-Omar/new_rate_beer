@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users
   resources :ratings
   resources :beers
   resources :breweries
@@ -7,5 +8,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  get "signup", to: "users#new"
+  get 'signup', to: 'users#new'
 end
