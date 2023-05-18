@@ -23,8 +23,12 @@ class RatingsController < ApplicationController
 
   # POST /ratings or /ratings.json
   def create
-    @rating = Rating.new(rating_params)
+    rating = Rating.create params.require(:rating).permit(:score, :beer_id)
+    session[:last_rating] = "#{rating.beer.name} #{rating.score} points"
 
+    redirect_to ratings_path
+
+=begin
     respond_to do |format|
       if @rating.save
         format.html { redirect_to rating_url(@rating), notice: "Rating was successfully created." }
@@ -34,6 +38,7 @@ class RatingsController < ApplicationController
         format.json { render json: @rating.errors, status: :unprocessable_entity }
       end
     end
+=end
   end
 
   # PATCH/PUT /ratings/1 or /ratings/1.json

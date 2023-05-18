@@ -7,10 +7,6 @@
     <%= csp_meta_tag %>
     <!-- Minified version -->
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
-
-    <!-- Un-Minified version -->
-    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.css">
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
 
@@ -20,6 +16,9 @@
   <body>
     <%link_to "breweries", breweries_path %>
     <%link_to "beers", beers_path %>
+    <% if not session[:user_id].nil? %>
+    <p><%= User.find(session[:user_id]).username %> signed in</p>
+  <% end %>
     <%= yield %>
   </body>
 </html>

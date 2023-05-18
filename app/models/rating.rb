@@ -1,5 +1,8 @@
 class Rating < ApplicationRecord
   belongs_to :beer
 
-  validates :score, presence: true , length: {minimum: 1, maximum: 100}
+  validates :score, presence: true , numericality:
+    {greater_than_or_equal_to: 1,
+     less_than_or_equal_to: 50,
+     only_integer: true }
 end
