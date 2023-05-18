@@ -14,11 +14,36 @@
   </head>
 
   <body>
-    <%link_to "breweries", breweries_path %>
-    <%link_to "beers", beers_path %>
-    <% unless session[:user_id].nil? %>
-  <p><%=  User.find(session[:user_id]).username  %> signed in</p>
-  <%  end %>
+    <% if current_user %>
+    <p><%= current_user.username %> signed in</p>
+
+      <ul>
+        <%=link_to "breweries", breweries_path %>
+        <%=link_to "beers", beers_path %>
+        <%= link_to "ratings", ratings_path %>
+        <%= link_to "users", users_path %>
+        <%= link_to current_user.username, current_user%>
+        <%= link_to "Rate a new beer", new_rating_path %>
+        <%= link_to "sign out", sign_out_path%>
+      </ul>
+
+
+
+
+    <%else %>
+
+      <ul>
+        <%=link_to "breweries", breweries_path %>
+        <%=link_to "beers", beers_path %>
+        <%= link_to "ratings", ratings_path %>
+        <%= link_to "users", users_path %>
+        <%= link_to "sign-up", sign_up_path %>
+        <%= link_to "sign-in", sign_in_path %>
+      </ul>
+
+
+  <% end %>
+
     <%= yield %>
   </body>
 </html>
